@@ -5,20 +5,31 @@ import Github from "@/icons/github.svg";
 import LinkedIn from "@/icons/linkedin.svg";
 ---
 <Layout>
-	<div class="bg-background text-foreground min-h-dvh flex place-items-center place-content-center">
-		<div class="flex flex-col prose prose-invert prose-4xl prose-headings:my-0 prose-h1:text-9xl prose-h2:text-3xl">
-			<h1 class="font-mono font-bold text-emerald-400 leading-none mb-0">
-				Andre Clark<span class="-ml-1 animate-pulse duration-1000">_</span>
-			</h1>
-			<h2>Front End Web Developer</h2>
-			<div>
-				<Button variant="primary" size="lg" href="https://github.com/AndreBClark" target="_blank">
-					<Github />See my code
-				</Button>
-				<Button href="https://www.linkedin.com/in/andre-clark-327820191/" target="_blank">
-					<LinkedIn />LinkedIn
-				</Button>
+	<div class="bg-background text-foreground min-h-dvh flex max-w-dvw flex-col">
+		<div class="flex prose prose-invert prose-xl xl:prose-4xl prose-headings:my-0 xl:prose-h1:text-9xl xl:prose-h2:text-3xl mx-2 gap-4">
+			<div class="flex flex-col place-content-center max-h-dvh h-[calc(100vh-100px)] mx-auto">
+				<h1 class="font-mono font-bold text-emerald-400 leading-none mb-0 flex relative">
+					Andre Clark
+					<!-- <span class="animate-pulse duration-1000 absolute right-0 overflow-hidden bottom-0">_</span> -->
+				</h1>
+				<h2 class="mx-0">Front End Web Developer</h2>
 			</div>
+		</div>
+		<div class="mb-8 mx-auto">
+			<Button
+				variant="primary"
+				size="lg"
+				href="https://github.com/AndreBClark"
+				target="_blank"
+			>
+				<Github />See my code
+			</Button>
+			<Button
+				href="https://www.linkedin.com/in/andre-clark-327820191/"
+				target="_blank"
+			>
+				<LinkedIn />LinkedIn
+			</Button>
 		</div>
 	</div>
 </Layout>
