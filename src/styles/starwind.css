@@ -96,8 +96,8 @@
 	}
 
 	.dark {
-		--background: var(--color-slate-950);
-		--foreground: var(--color-slate-50);
+		--background: var(--color-violet-950);
+		--foreground: var(--color-emerald-100);
 		--card: var(--color-slate-950);
 		--card-foreground: var(--color-slate-50);
 		--popover: var(--color-slate-950);
