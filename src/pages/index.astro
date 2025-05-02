@@ -1,13 +1,19 @@
 ---
+import Button from "@/components/starwind/button";
 import Layout from "@/layouts/Layout.astro";
 ---
 <Layout>
-	<div class="bg-accent-foreground min-h-dvh flex place-items-center place-content-center">
-		<div class="prose prose-3xl prose-invert flex flex-col">
-			<h1 class="font-mono text-emerald-200 leading-none mb-0">
-				Andre Clark<span class="animate-ping duration-[2000ms]">_</span>
+	<div class="bg-indigo-950 min-h-dvh flex place-items-center place-content-center">
+		<div class="flex flex-col prose prose-invert prose-4xl prose-headings:my-0 prose-h1:text-9xl prose-h2:text-3xl">
+			<h1 class="font-mono font-bold text-emerald-400 leading-none mb-0">
+				Andre Clark<span class="-ml-1 animate-pulse duration-1000">_</span>
 			</h1>
-			<h2 class="leading-none mt-0 text-3xl">Front End Web Developer</h2>
+			<h2>Front End Web Developer</h2>
+			<div>
+				<Button variant="primary" size="lg">
+					Press me
+				</Button>
+			</div>
 		</div>
 	</div>
 </Layout>
