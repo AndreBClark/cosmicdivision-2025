@@ -4,19 +4,88 @@ import Layout from "@/layouts/Layout.astro";
 import Github from "@/icons/github.svg";
 import LinkedIn from "@/icons/linkedin.svg";
 import Email from "@/icons/ic--round-email.svg";
+import P5 from "@/components/p5.astro";
 ---
 <Layout>
+		<P5>
+			<script is:inline>
+function setup() {
+  let canv = createCanvas(displayWidth, displayHeight);
+	canv.position(0, 0, "absolute")
+	colorMode(HSB);
+	background(266.1, 100, 100)
+	for(let i = 0;i<width/10;i++){
+    particles.push(new Particle());
+  }
+	// Set color mode to hue-saturation-brightness (HSB)
+}
+
+// this class describes the properties of a single particle.
+class Particle {
+// setting the co-ordinates, radius and the
+// speed of a particle in both the co-ordinates axes.
+  constructor(){
+    this.x = random(0,width);
+    this.y = random(0,height);
+    this.r = random(1,8);
+    this.xSpeed = random(-2,2);
+    this.ySpeed = random(-1,1.5);
+  }
+
+// creation of a particle.
+  createParticle() {
+    noStroke();
+    fill('rgba(10,200,150,0.5)');
+    circle(this.x,this.y,this.r);
+  }
+
+// setting the particle in motion.
+  moveParticle() {
+    if(this.x < 0 || this.x > width)
+      this.xSpeed*=-1;
+    if(this.y < 0 || this.y > height)
+      this.ySpeed*=-1;
+    this.x+=this.xSpeed;
+    this.y+=this.ySpeed;
+  }
+
+// this function creates the connections(lines)
+// between particles which are less than a certain distance apart
+  joinParticles(particles) {
+    particles.forEach(element =>{
+      let dis = dist(this.x,this.y,element.x,element.y);
+      if(dis<85) {
+        stroke('rgba(255,255,255,0.04)');
+        line(this.x,this.y,element.x,element.y);
+      }
+    });
+  }
+}
+
+// an array to add multiple particles
+let particles = [];
+
+function draw() {
+  background(266.1, 100, 100);
+  for(let i = 0;i<particles.length;i++) {
+    particles[i].createParticle();
+    particles[i].moveParticle();
+    particles[i].joinParticles(particles.slice(i));
+  }
+}
+			</script>
+		</P5>
 	<div class="bg-background text-foreground min-h-dvh flex max-w-dvw flex-col">
-		<div class="flex prose prose-invert prose-xl xl:prose-4xl prose-headings:my-0 xl:prose-h1:text-9xl xl:prose-h2:text-3xl mx-2 gap-4">
+		<div class="relative z-50 flex prose prose-invert prose-xl xl:prose-4xl prose-headings:my-0 xl:prose-h1:text-9xl xl:prose-h2:text-3xl mx-2 gap-4">
 			<div class="flex flex-col place-content-center max-h-dvh
 			xl:h-[calc(100dvh-100px)] h-[calc(100dvh-150px)] mx-auto">
-				<h1 class="font-mono font-bold text-emerald-400 leading-none mb-0 flex relative">
+				<h1 class="font-mono font-bold text-emerald-400 leading-none mb-0 flex relative" draggable="false">
 					Andre Clark
 				</h1>
-				<h2 class="mx-0">Frontend Web Developer</h2>
+				<h2 class="mx-0" draggable="false">Frontend Web Developer</h2>
 			</div>
 		</div>
-		<div class="mx-auto gap-2 flex flex-col xl:flex-row flex-wrap">
+		<div class="mx-auto gap-2 flex flex-col xl:flex-row flex-wrap z-50 relative">
 			<Button
 				variant="primary"
 				size="lg"

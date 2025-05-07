@@ -1,6 +1,11 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
+  "include": [
+    ".astro/types.d.ts", "**/*",
+    "*.js",
+    "**/*.js",
+    "/home/andrec/.vscode/extensions/samplavigne.p5-vscode-1.2.16/p5types/global.d.ts"
+  ],
   "exclude": ["dist"],
   "compilerOptions": {
     "baseUrl": ".",
